@@ -24,7 +24,7 @@ func _input(event):
 				life -= 1
 				get_parent().life = life
 				var text = str(life)
-				get_parent().get_node("Label2").set_text(text)
+				get_parent().get_node("GUI").get_node("Lives").set_text(text)
 				if life == 0:
 					print("game over")
 					emit_signal("dead")
