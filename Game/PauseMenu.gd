@@ -20,3 +20,8 @@ func _on_Continue_pressed():
 func _on_Quit_pressed():
 	get_tree().quit()
 	pass # Replace with function body.
+
+
+func _on_RestartPause_pressed():
+	self.is_paused = false
+	get_tree().reload_current_scene()

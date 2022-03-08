@@ -31,6 +31,13 @@ func _on_Timer_timeout():
 	pass # Replace with function body.
 
 
-func _on_TileMap_dead():
-	get_tree().change_scene("res://Menu.tscn")
-	pass # Replace with function body.
+
+
+
+
+
+
+
+
+
+
