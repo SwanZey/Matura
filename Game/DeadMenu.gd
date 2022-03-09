@@ -17,6 +17,6 @@ func _on_RestartDead_pressed():
 func _on_Quit_pressed():
 	get_tree().quit()
 
-
-func _on_GUI_gameover():
+func _on_Polygon2D_dead():
 	self.paused = true
+	pass # Replace with function body.

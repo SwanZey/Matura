@@ -41,3 +41,8 @@ func _on_Timer_timeout():
 
 
 
+
+
+func _on_TileMap_dead():
+	emit_signal("dead")
+	pass # Replace with function body.
