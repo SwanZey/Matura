@@ -16,19 +16,16 @@ func _ready():
 #	pass
 
 
-
-
-
-func _on_Exit_pressed():
-	get_tree().quit()
+func _on_Button_pressed():
+	get_tree().change_scene("res://TRY.tscn")
 	pass # Replace with function body.
 
 
-func _on_Settings_pressed():
-	get_tree().change_scene("res://Settings.tscn")
+func _on_Soundlevel_value_changed(value):
+	get_node("SoundValue").set_text(str(value))
 	pass # Replace with function body.
 
 
-func _on_NewGame_pressed():
-	get_tree().change_scene("res://LevelPicker.tscn")
+func _on_SFXlevel_value_changed(value):
+	get_node("SFXValue").set_text(str(value))
 	pass # Replace with function body.

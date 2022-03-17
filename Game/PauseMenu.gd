@@ -19,8 +19,8 @@ func _on_Continue_pressed():
 
 
 func _on_Quit_pressed():
-	var menu = preload("res://TRY.tscn").instance()
-	get_tree().change_scene_to(menu)
+	self.is_paused = false
+	get_tree().change_scene("res://TRY.tscn")
 	pass # Replace with function body.
 
 

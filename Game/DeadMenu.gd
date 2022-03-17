@@ -20,3 +20,8 @@ func _on_Quit_pressed():
 func _on_Polygon2D_dead():
 	self.paused = true
 	pass # Replace with function body.
+
+
+func _on_BackToLevelSelect_pressed():
+	get_tree().change_scene("res://LevelPicker.tscn")
+	pass # Replace with function body.

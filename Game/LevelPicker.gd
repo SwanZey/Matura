@@ -16,19 +16,27 @@ func _ready():
 #	pass
 
 
-
-
-
-func _on_Exit_pressed():
-	get_tree().quit()
+func _on_Level1_pressed():
+	get_tree().change_scene("res://Level1.tscn")
 	pass # Replace with function body.
 
 
-func _on_Settings_pressed():
-	get_tree().change_scene("res://Settings.tscn")
+func _on_Level2_pressed():
+	#get_tree().change_scene_to(level2)
 	pass # Replace with function body.
 
 
-func _on_NewGame_pressed():
-	get_tree().change_scene("res://LevelPicker.tscn")
+func _on_Level3_pressed():
+	pass # Replace with function body.
+
+
+func _on_Level4_pressed():
+	pass # Replace with function body.
+
+
+func _on_Level5_pressed():
+	pass # Replace with function body.
+
+
+func _on_Level6_pressed():
 	pass # Replace with function body.
