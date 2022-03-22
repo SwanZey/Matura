@@ -11,6 +11,11 @@ func _ready():
 	var tileset = self.get_tileset()
 	var tiles = get_used_cells()
 	set_process_input(true)
+	
+	
+	
+	
+	
 
 func _input(event):
 	var tile_pos = self.world_to_map(get_global_mouse_position())
@@ -36,6 +41,4 @@ func _input(event):
 					emit_signal("dead")
 			else:
 				pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
