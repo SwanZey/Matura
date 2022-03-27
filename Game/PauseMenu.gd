@@ -1,7 +1,8 @@
 extends Control
 
 var is_paused = false setget set_is_paused
-
+func _onready():
+	self.set_global_position(Vector2(1000,800))
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		self.is_paused = !is_paused
@@ -18,7 +19,8 @@ func _on_Continue_pressed():
 
 
 func _on_Quit_pressed():
-	get_tree().quit()
+	self.is_paused = false
+	get_tree().change_scene("res://TRY.tscn")
 	pass # Replace with function body.
 
 

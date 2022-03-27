@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://.import/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://DeadMenu.gd" type="Script" id=2]
@@ -8,6 +8,10 @@ size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 50
 font_data = ExtResource( 1 )
 
@@ -32,14 +36,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
-margin_left = 817.0
-margin_top = 420.0
-margin_right = 1102.0
-margin_bottom = 660.0
+margin_left = 808.0
+margin_top = 379.0
+margin_right = 1111.0
+margin_bottom = 701.0
 custom_constants/separation = 14
 
 [node name="GameOver" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
-margin_right = 285.0
+margin_right = 303.0
 margin_bottom = 62.0
 custom_fonts/font = SubResource( 1 )
 text = "Game Over"
@@ -48,22 +52,30 @@ valign = 1
 
 [node name="Control" type="Control" parent="ColorRect/CenterContainer/VBoxContainer"]
 margin_top = 76.0
-margin_right = 285.0
+margin_right = 303.0
 margin_bottom = 76.0
 
 [node name="RestartDead" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 margin_top = 90.0
-margin_right = 285.0
+margin_right = 303.0
 margin_bottom = 158.0
 custom_fonts/font = SubResource( 2 )
 text = "Restart"
 
-[node name="Quit" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+[node name="BackToLevelSelect" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 margin_top = 172.0
-margin_right = 285.0
+margin_right = 303.0
 margin_bottom = 240.0
+custom_fonts/font = SubResource( 4 )
+text = "LevelSelect"
+
+[node name="Quit" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 254.0
+margin_right = 303.0
+margin_bottom = 322.0
 custom_fonts/font = SubResource( 3 )
 text = "Quit"
 
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/RestartDead" to="." method="_on_RestartDead_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/BackToLevelSelect" to="." method="_on_BackToLevelSelect_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

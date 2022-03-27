@@ -42,6 +42,7 @@ margin_right = 1110.0
 margin_bottom = 705.0
 rect_min_size = Vector2( 300, 300 )
 custom_constants/separation = 16
+alignment = 1
 
 [node name="Label" type="Label" parent="Background/CenterContainer/VBoxContainer"]
 margin_right = 300.0

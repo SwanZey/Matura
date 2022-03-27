@@ -11,16 +11,15 @@ config_version=4
 [application]
 
 config/name="Game"
-run/main_scene="res://.import/Polygon2D.tscn"
+run/main_scene="res://TRY.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
+window/size/resizable=false
 window/size/fullscreen=true
-window/size/test_width=1920
-window/size/test_height=1080
 
 [gui]
 
