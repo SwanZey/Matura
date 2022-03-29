@@ -33,10 +33,10 @@ func _input(event):
 				if life == 0:
 					print("game over")
 					emit_signal("dead")
-			elif tile_name == "wrong_clicked" or "1_clicked":
+			elif tile_name == "wrong_clicked" or tile_name == "1_clicked":
 				pass
 			else:
-				tile_name+="_clicked"
+				tile_name += "_clicked"
 				self.set_cellv(tile_pos, self.get_tileset().find_tile_by_name(tile_name))
 				pass
 
