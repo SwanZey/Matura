@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://.import/Mechanics.gd" type="Script" id=1]
 [ext_resource path="res://.import/Checking.gd" type="Script" id=2]
@@ -133,6 +133,8 @@
 15/shapes = [  ]
 15/z_index = 0
 
+[sub_resource type="TileSet" id=2]
+
 [node name="Polygon2D" type="Polygon2D"]
 light_mask = 512
 color = Color( 0.0431373, 0.819608, 0.972549, 1 )
@@ -151,6 +153,11 @@ script = ExtResource( 2 )
 autostart = true
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
 
 [connection signal="dead" from="TileMap" to="." method="_on_TileMap_dead"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
