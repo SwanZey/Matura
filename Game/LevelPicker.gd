@@ -40,3 +40,7 @@ func _on_Level5_pressed():
 
 func _on_Level6_pressed():
 	pass # Replace with function body.
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://TRY.tscn")

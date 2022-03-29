@@ -29,3 +29,7 @@ func _on_Soundlevel_value_changed(value):
 func _on_SFXlevel_value_changed(value):
 	get_node("SFXValue").set_text(str(value))
 	pass # Replace with function body.
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://TRY.tscn")
