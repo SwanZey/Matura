@@ -26,6 +26,8 @@ func _on_Timer_timeout():
 	var text_int = int(text)
 	text_int -= 1
 	text = str(text_int)
+	if (text_int == 0):
+		emit_signal("dead")
 	time.set_text(text)
 	get_node("Timer").start(1)
 	pass # Replace with function body.
@@ -45,4 +47,8 @@ func _on_Timer_timeout():
 
 func _on_TileMap_dead():
 	emit_signal("dead")
+	pass # Replace with function body.
+
+
+func _on_TileMap_victory():
 	pass # Replace with function body.

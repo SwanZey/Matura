@@ -4,15 +4,16 @@ extends TileMap
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+signal check
 signal dead
+signal clicked
+signal victory
+onready var pocet = get_parent().get_node("GUI/Count")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var tileset = self.get_tileset()
-	var tiles = get_used_cells()
-	set_process_input(true)
-	
-	
+	for i in range (20):
+		var check_pos = [(19+i),(5+i)]
+		emit_signal("check", [check_pos])
 # self.set_cellv(tile_pos, self.get_tileset().find_tile_by_name("1-4"))	
 	
 	
@@ -38,5 +39,12 @@ func _input(event):
 			else:
 				tile_name += "_clicked"
 				self.set_cellv(tile_pos, self.get_tileset().find_tile_by_name(tile_name))
+				emit_signal("clicked", [tile_pos])
+				var cislo = int(pocet.get_text())
+				if (cislo == 1):
+					emit_signal("victory")
+				else:
+					cislo -= 1
+					pocet.set_text(String(cislo))
 				pass
 
