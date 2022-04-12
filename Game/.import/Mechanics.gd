@@ -5,6 +5,7 @@ extends Polygon2D
 # var a = 2
 # var b = "text"
 signal dead
+signal victory
 # Called when the node enters the scene tree for the first time.
 onready var life = 3
 
@@ -15,6 +16,9 @@ var cell
 func _input(event):
 	if event.is_action_pressed('click'):
 		target = get_global_mouse_position()
+
+func _ready():
+	Music.get_node("soundtrack").play(Data.music)
 
 func _process(delta):
 	pass
@@ -51,4 +55,11 @@ func _on_TileMap_dead():
 
 
 func _on_TileMap_victory():
+	if (Data.current_level == "level1"):
+		Data.level1 = true
+	elif (Data.current_level == "level2"):
+		Data.level2 = true
+	else:
+		Data.level3 = true
+	emit_signal("victory")
 	pass # Replace with function body.

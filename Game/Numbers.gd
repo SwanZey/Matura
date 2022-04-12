@@ -26,7 +26,7 @@ func sloupec(id):
 		var sloup = id
 		var tile_pos = Vector2(sloup,radek)
 		var tile_name = get_parent().get_node("TileMap").get_tileset().tile_get_name(get_parent().get_node("TileMap").get_cellv(tile_pos))
-		if (tile_name == "wrong") or (tile_name == "wrong_clicked") :
+		if (tile_name == "wrong") or (tile_name == "wrong_clicked") or (tile_name == "wrong_fill") :
 			if (pocet >= 1):
 				var cislo_pos = Vector2(sloup,4-kolikrat)
 				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(String(pocet)))
@@ -34,7 +34,9 @@ func sloupec(id):
 				kolikrat += 1
 			elif (pocet == 0) && (kolikrat == 0) && (radek == 5):
 				var cislo_pos = Vector2(sloup,4-kolikrat)
-				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(String(pocet)))
+				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(String(pocet)+"_completed"))
+				sloupec_vyplnit(sloup)
+				
 		elif (pocet == 19) :
 			var cislo_pos = Vector2(sloup,4-kolikrat)
 			self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name("20"))
@@ -54,7 +56,7 @@ func radek(id):
 		var radek = id
 		var tile_pos = Vector2(sloup,radek)
 		var tile_name = get_parent().get_node("TileMap").get_tileset().tile_get_name(get_parent().get_node("TileMap").get_cellv(tile_pos))
-		if (tile_name == "wrong") or (tile_name == "wrong_clicked") :
+		if (tile_name == "wrong") or (tile_name == "wrong_clicked") or (tile_name == "wrong_fill") :
 			if (pocet >= 1):
 				var cislo_pos = Vector2(18-kolikrat,radek)
 				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(String(pocet)))
@@ -62,7 +64,7 @@ func radek(id):
 				kolikrat += 1
 			elif (pocet == 0) && (kolikrat == 0) && (sloup == 19):
 				var cislo_pos = Vector2(18-kolikrat,radek)
-				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(String(pocet)))
+				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(String(pocet+"_completed")))
 		elif (pocet == 19) :
 			var cislo_pos = Vector2(18-kolikrat,radek)
 			self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name("20"))
@@ -84,7 +86,7 @@ func sloupec_splneno(id):
 		var sloup = id
 		var tile_pos = Vector2(sloup,radek)
 		var tile_name = get_parent().get_node("TileMap").get_tileset().tile_get_name(get_parent().get_node("TileMap").get_cellv(tile_pos))
-		if (tile_name == "1_clicked") or (tile_name == "2_clicked") or (tile_name == "3_clicked"):
+		if (tile_name == "1_clicked") or (tile_name == "2_clicked") or (tile_name == "3_clicked") or (tile_name == "4_clicked"):
 			narazilo = true
 			pocet += 1
 			if  (radek == 5) && (String(pocet) ==self.get_tileset().tile_get_name(self.get_cellv(cislo_pos))) :
@@ -94,7 +96,7 @@ func sloupec_splneno(id):
 				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(pocet))
 				pocet = 0
 		else:
-			if (tile_name == "1") || (tile_name == "2") || (tile_name == "3") :
+			if (tile_name == "1") || (tile_name == "2") || (tile_name == "3") || (tile_name == "4") :
 				narazilo = true
 			if (String(pocet) ==self.get_tileset().tile_get_name(self.get_cellv(cislo_pos))) :
 				pocet = String(pocet)
@@ -103,7 +105,7 @@ func sloupec_splneno(id):
 				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(pocet))
 				pocet = 0
 			if (narazilo == true):
-				if (tile_name == "wrong") || (tile_name == "wrong_clicked") :
+				if (tile_name == "wrong") || (tile_name == "wrong_clicked") || (tile_name == "wrong_fill"):
 					kolikrat += 1
 					pocet = 0
 					narazilo = false
@@ -120,7 +122,7 @@ func radek_splneno(id):
 		var radek = id
 		var tile_pos = Vector2(sloup,radek)
 		var tile_name = get_parent().get_node("TileMap").get_tileset().tile_get_name(get_parent().get_node("TileMap").get_cellv(tile_pos))
-		if (tile_name == "1_clicked") or (tile_name == "2_clicked") or (tile_name == "3_clicked"):
+		if (tile_name == "1_clicked") or (tile_name == "2_clicked") or (tile_name == "3_clicked") or (tile_name == "4_clicked"):
 			narazilo = true
 			pocet += 1
 			if  (sloup == 19) && (String(pocet) ==self.get_tileset().tile_get_name(self.get_cellv(cislo_pos))) :
@@ -130,7 +132,7 @@ func radek_splneno(id):
 				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(pocet))
 				pocet = 0
 		else:
-			if (tile_name == "1") || (tile_name == "2") || (tile_name == "3") :
+			if (tile_name == "1") || (tile_name == "2") || (tile_name == "3") || (tile_name == "4") :
 				narazilo = true
 			if (String(pocet) ==self.get_tileset().tile_get_name(self.get_cellv(cislo_pos))) :
 				pocet = String(pocet)
@@ -139,7 +141,7 @@ func radek_splneno(id):
 				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(pocet))
 				pocet = 0
 			if (narazilo == true):
-				if (tile_name == "wrong") || (tile_name == "wrong_clicked") :
+				if (tile_name == "wrong") || (tile_name == "wrong_clicked") || (tile_name == "wrong_fill") :
 					kolikrat += 1
 					pocet = 0
 					narazilo = false
@@ -152,7 +154,7 @@ func sloupec_vyplnit(id):
 		var sloup = id
 		var tile_pos = Vector2(sloup,radek)
 		var tile_name = get_parent().get_node("TileMap").get_tileset().tile_get_name(get_parent().get_node("TileMap").get_cellv(tile_pos))
-		if (tile_name!= "1") && (tile_name!= "2") && (tile_name!= "3") :
+		if (tile_name!= "1") && (tile_name!= "2") && (tile_name!= "3") && (tile_name!= "4") :
 			pass
 		else :
 			narazilo = true
@@ -163,7 +165,7 @@ func sloupec_vyplnit(id):
 			var tile_pos = Vector2(sloup,radek)
 			var tile_name = get_parent().get_node("TileMap").get_tileset().tile_get_name(get_parent().get_node("TileMap").get_cellv(tile_pos))
 			if (tile_name == "wrong"):
-				get_parent().get_node("TileMap").set_cellv(tile_pos, get_parent().get_node("TileMap").get_tileset().find_tile_by_name("wrong_clicked"))
+				get_parent().get_node("TileMap").set_cellv(tile_pos, get_parent().get_node("TileMap").get_tileset().find_tile_by_name("wrong_fill"))
 	pass
 	
 func radek_vyplnit(id):
@@ -173,7 +175,7 @@ func radek_vyplnit(id):
 		var radek = id
 		var tile_pos = Vector2(sloup,radek)
 		var tile_name = get_parent().get_node("TileMap").get_tileset().tile_get_name(get_parent().get_node("TileMap").get_cellv(tile_pos))
-		if (tile_name!= "1") && (tile_name!= "2") && (tile_name!= "3") :
+		if (tile_name!= "1") && (tile_name!= "2") && (tile_name!= "3") && (tile_name!= "4") :
 			pass
 		else :
 			narazilo = true
@@ -184,7 +186,7 @@ func radek_vyplnit(id):
 			var tile_pos = Vector2(sloup,radek)
 			var tile_name = get_parent().get_node("TileMap").get_tileset().tile_get_name(get_parent().get_node("TileMap").get_cellv(tile_pos))
 			if (tile_name == "wrong"):
-				get_parent().get_node("TileMap").set_cellv(tile_pos, get_parent().get_node("TileMap").get_tileset().find_tile_by_name("wrong_clicked"))
+				get_parent().get_node("TileMap").set_cellv(tile_pos, get_parent().get_node("TileMap").get_tileset().find_tile_by_name("wrong_fill"))
 	pass
 	
 	

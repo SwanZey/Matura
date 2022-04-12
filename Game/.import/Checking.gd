@@ -34,7 +34,7 @@ func _input(event):
 				if life == 0:
 					print("game over")
 					emit_signal("dead")
-			elif tile_name == "wrong_clicked" or tile_name == "1_clicked":
+			elif tile_name == "wrong_clicked" or tile_name == "1_clicked" or tile_name == "2_clicked" or tile_name == "3_clicked" or tile_name == "4_clicked" or tile_name == "wrong_fill":
 				pass
 			else:
 				tile_name += "_clicked"
@@ -42,6 +42,7 @@ func _input(event):
 				emit_signal("clicked", [tile_pos])
 				var cislo = int(pocet.get_text())
 				if (cislo == 1):
+					cislo -= 1
 					emit_signal("victory")
 				else:
 					cislo -= 1

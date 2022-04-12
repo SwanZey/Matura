@@ -14,6 +14,15 @@ config/name="Game"
 run/main_scene="res://TRY.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout=""
+
+[autoload]
+
+Data="*res://data.gd"
+Music="*res://Music.tscn"
+
 [display]
 
 window/size/width=1920

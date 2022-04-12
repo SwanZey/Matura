@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://.import/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GUI.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 1 )
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Timer" type="Label" parent="."]
+margin_left = 29.0
+margin_top = 12.0
+margin_right = 151.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 1 )
+text = "600"
+
+[node name="Lives" type="Label" parent="."]
+margin_left = 36.0
+margin_top = 89.0
+margin_right = 150.0
+margin_bottom = 159.0
+custom_fonts/font = SubResource( 2 )
+text = "3"
+
+[node name="Count" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 168.0
+margin_right = 137.0
+margin_bottom = 231.0
+custom_fonts/font = SubResource( 3 )
+text = "142"

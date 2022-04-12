@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://.import/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://buttons/button_resume.png" type="Texture" id=3]
+[ext_resource path="res://buttons/button_quit.png" type="Texture" id=4]
+[ext_resource path="res://buttons/button_restart.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -37,9 +40,9 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/CenterContainer"]
 margin_left = 810.0
-margin_top = 375.0
+margin_top = 276.0
 margin_right = 1110.0
-margin_bottom = 705.0
+margin_bottom = 804.0
 rect_min_size = Vector2( 300, 300 )
 custom_constants/separation = 16
 alignment = 1
@@ -48,7 +51,7 @@ alignment = 1
 margin_right = 300.0
 margin_bottom = 62.0
 custom_fonts/font = SubResource( 1 )
-text = "Paused"
+text = "Paused   "
 align = 1
 valign = 1
 
@@ -60,24 +63,33 @@ margin_bottom = 78.0
 [node name="Continue" type="Button" parent="Background/CenterContainer/VBoxContainer"]
 margin_top = 94.0
 margin_right = 300.0
-margin_bottom = 162.0
+margin_bottom = 228.0
 custom_fonts/font = SubResource( 2 )
-text = "Continue"
+icon = ExtResource( 3 )
+flat = true
 
 [node name="RestartPause" type="Button" parent="Background/CenterContainer/VBoxContainer"]
-margin_top = 178.0
+margin_top = 244.0
 margin_right = 300.0
-margin_bottom = 246.0
+margin_bottom = 378.0
 custom_fonts/font = SubResource( 4 )
-text = "Restart"
+icon = ExtResource( 5 )
+flat = true
 
 [node name="Quit" type="Button" parent="Background/CenterContainer/VBoxContainer"]
-margin_top = 262.0
+margin_top = 394.0
 margin_right = 300.0
-margin_bottom = 330.0
+margin_bottom = 528.0
 custom_fonts/font = SubResource( 3 )
-text = "Quit"
+icon = ExtResource( 4 )
+flat = true
 
+[connection signal="mouse_entered" from="Background/CenterContainer/VBoxContainer/Continue" to="." method="_on_Continue_mouse_entered"]
+[connection signal="mouse_exited" from="Background/CenterContainer/VBoxContainer/Continue" to="." method="_on_Continue_mouse_exited"]
 [connection signal="pressed" from="Background/CenterContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="mouse_entered" from="Background/CenterContainer/VBoxContainer/RestartPause" to="." method="_on_RestartPause_mouse_entered"]
+[connection signal="mouse_exited" from="Background/CenterContainer/VBoxContainer/RestartPause" to="." method="_on_RestartPause_mouse_exited"]
 [connection signal="pressed" from="Background/CenterContainer/VBoxContainer/RestartPause" to="." method="_on_RestartPause_pressed"]
+[connection signal="mouse_entered" from="Background/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_mouse_entered"]
+[connection signal="mouse_exited" from="Background/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_mouse_exited"]
 [connection signal="pressed" from="Background/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

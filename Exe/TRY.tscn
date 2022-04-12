@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://.import/Montserrat-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://background/Playspace_resized.png" type="Texture" id=3]
+[ext_resource path="res://buttons/Button_Play.png" type="Texture" id=4]
+[ext_resource path="res://buttons/button_settings.png" type="Texture" id=5]
+[ext_resource path="res://buttons/button_quit.png" type="Texture" id=6]
+[ext_resource path="res://background/Steelclash Full Logo.png" type="Texture" id=7]
+[ext_resource path="res://save_game.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+Game_save = ExtResource( 8 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 438.0
+margin_top = -114.0
+margin_right = 1466.0
+margin_bottom = 464.0
+texture = ExtResource( 7 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 826.0
+margin_top = 279.0
+margin_right = 1094.0
+margin_bottom = 801.0
+custom_constants/separation = 20
+
+[node name="NewGame" type="Button" parent="VBoxContainer"]
+margin_right = 268.0
+margin_bottom = 134.0
+custom_fonts/font = SubResource( 1 )
+icon = ExtResource( 4 )
+flat = true
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 154.0
+margin_right = 268.0
+margin_bottom = 288.0
+custom_fonts/font = SubResource( 2 )
+icon = ExtResource( 5 )
+flat = true
+
+[node name="Space1" type="Control" parent="VBoxContainer"]
+margin_top = 308.0
+margin_right = 268.0
+margin_bottom = 308.0
+
+[node name="Space2" type="Control" parent="VBoxContainer"]
+margin_top = 328.0
+margin_right = 268.0
+margin_bottom = 328.0
+
+[node name="Space3" type="Control" parent="VBoxContainer"]
+margin_top = 348.0
+margin_right = 268.0
+margin_bottom = 348.0
+
+[node name="Space4" type="Control" parent="VBoxContainer"]
+margin_top = 368.0
+margin_right = 268.0
+margin_bottom = 368.0
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+margin_top = 388.0
+margin_right = 268.0
+margin_bottom = 522.0
+custom_fonts/font = SubResource( 3 )
+icon = ExtResource( 6 )
+flat = true
+
+[connection signal="mouse_entered" from="VBoxContainer/NewGame" to="." method="_on_NewGame_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/NewGame" to="." method="_on_NewGame_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Settings" to="." method="_on_Settings_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Settings" to="." method="_on_Settings_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Exit" to="." method="_on_Exit_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Exit" to="." method="_on_Exit_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
