@@ -64,7 +64,8 @@ func radek(id):
 				kolikrat += 1
 			elif (pocet == 0) && (kolikrat == 0) && (sloup == 19):
 				var cislo_pos = Vector2(18-kolikrat,radek)
-				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(String(pocet+"_completed")))
+				self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name(String(pocet)+"_completed"))
+				radek_vyplnit(radek)
 		elif (pocet == 19) :
 			var cislo_pos = Vector2(18-kolikrat,radek)
 			self.set_cellv(cislo_pos, self.get_tileset().find_tile_by_name("20"))

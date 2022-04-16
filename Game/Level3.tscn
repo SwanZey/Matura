@@ -22,3 +22,4 @@ __meta__ = {
 visible = false
 
 [connection signal="dead" from="Polygon2D" to="DeadMenu" method="_on_Polygon2D_dead"]
+[connection signal="victory" from="Polygon2D" to="VictoryMenu" method="_on_Polygon2D_victory"]

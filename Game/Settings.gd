@@ -71,8 +71,8 @@ func _on_Back_pressed():
 
 func _on_Delete_pressed():
 	var dir = Directory.new()
-	if (dir.file_exists("res://saves/saved_game.tres") == true):
-		dir.remove("res://saves/saved_game.tres")
+	if (dir.file_exists("user://saves/saved_game.tres") == true):
+		dir.remove("user://saves/saved_game.tres")
 		Data.level1 = false
 		Data.level2 = false
 		Data.level3 = false

@@ -823,8 +823,12 @@ cell_size = Vector2( 32, 32 )
 format = 1
 script = ExtResource( 29 )
 
+[node name="Mouse" type="Timer" parent="."]
+wait_time = 0.06
+
 [connection signal="check" from="TileMap" to="TileMap2" method="_on_TileMap_check"]
 [connection signal="clicked" from="TileMap" to="TileMap2" method="_on_TileMap_clicked"]
 [connection signal="dead" from="TileMap" to="." method="_on_TileMap_dead"]
 [connection signal="victory" from="TileMap" to="." method="_on_TileMap_victory"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Mouse" to="TileMap" method="_on_Mouse_timeout"]
